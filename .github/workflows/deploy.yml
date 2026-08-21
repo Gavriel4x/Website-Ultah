@@ -3,6 +3,8 @@ name: Deploy birthday website to GitHub Pages
 on:
   push:
     branches: [main, master]
+  pull_request:
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -11,12 +13,13 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Check out the website
         uses: actions/checkout@v4
@@ -50,10 +53,12 @@ jobs:
           path: dist
 
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: build
     steps:
       - name: Publish

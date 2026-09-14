@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-type AnswerKey = 'age' | 'wish' | 'fromWilliam' | 'lesson';
+type AnswerKey = 'age' | 'wish' | 'fromGod' | 'lesson';
 type Answers = Record<AnswerKey, string>;
 
 type Question = {
@@ -16,13 +16,13 @@ type Question = {
   multiline?: boolean;
 };
 
-const WILLIAM_WHATSAPP = '';
+const REY_WHATSAPP = '';
 
 const QUESTIONS: Question[] = [
   {
     key: 'age',
     eyebrow: 'First question',
-    title: 'So… sekarang kamu resmi bertambah usia yang keberapa, nich? 🎂',
+    title: 'So… sekarang kamu resmi bertambah usia yang keberapa? 🎂',
     paragraphs: [
       'Another year, another chapter. Another version of you to celebrate.',
       'Tell me, how old are you now?',
@@ -46,15 +46,15 @@ const QUESTIONS: Question[] = [
     multiline: true,
   },
   {
-    key: 'fromWilliam',
+    key: 'fromGod',
     eyebrow: 'Third question',
     title: 'Okay, now let’s make it a little more interesting…',
     paragraphs: [
       'Kalau Aku dikasih kesempatan untuk mewujudkan satu harapan kamu…',
       'No matter how big it is. No matter how impossible it sounds.',
-      'What would you ask me for? 🤍',
+      'What would you ask God for? 🤍',
     ],
-    label: 'If I could ask William for one thing…',
+    label: 'If I could ask God for one thing…',
     placeholder: 'Dream as big—or as simply—as you want…',
     nextLabel: 'The important one',
     multiline: true,
@@ -72,7 +72,7 @@ const QUESTIONS: Question[] = [
     ],
     label: 'The lesson I’m carrying forward is…',
     placeholder: 'What has this chapter taught you?',
-    nextLabel: 'Read William’s letter',
+    nextLabel: 'Read Rey’s letter',
     multiline: true,
   },
 ];
@@ -80,7 +80,7 @@ const QUESTIONS: Question[] = [
 const EMPTY_ANSWERS: Answers = {
   age: '',
   wish: '',
-  fromWilliam: '',
+  fromGod: '',
   lesson: '',
 };
 
@@ -92,7 +92,7 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      const saved = window.sessionStorage.getItem('oca-birthday-answers');
+      const saved = window.sessionStorage.getItem('jessica-birthday-answers');
       if (saved) setAnswers({ ...EMPTY_ANSWERS, ...JSON.parse(saved) });
     } catch {
       // The experience still works when browser storage is unavailable.
@@ -101,7 +101,7 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      window.sessionStorage.setItem('oca-birthday-answers', JSON.stringify(answers));
+      window.sessionStorage.setItem('jessica-birthday-answers', JSON.stringify(answers));
     } catch {
       // Keep the answers in memory if browser storage is unavailable.
     }
@@ -133,9 +133,9 @@ export default function Home() {
   }
 
   function whatsappUrl() {
-    const number = WILLIAM_WHATSAPP.replace(/\D/g, '');
+    const number = REY_WHATSAPP.replace(/\D/g, '');
     const message = [
-      'Hi William! 🤍',
+      'Hi Rey! 🤍',
       'Aku sudah selesai baca website-nya. Ini jawabanku:',
       '',
       `🎂 Umurku sekarang: ${answers.age}`,
@@ -143,8 +143,8 @@ export default function Home() {
       '✨ Harapanku tahun ini:',
       answers.wish,
       '',
-      '🤍 Kalau kamu bisa mewujudkan satu harapanku:',
-      answers.fromWilliam,
+      '🤍 Kalau aku bisa meminta satu hal kepada Tuhan:',
+      answers.fromGod,
       '',
       '🌱 Pelajaran paling berarti yang aku bawa:',
       answers.lesson,
@@ -169,7 +169,7 @@ export default function Home() {
           aria-label="Return to the beginning"
         >
           <span className="wordmark-star">✦</span>
-          <span>Oca&apos;s Birthday</span>
+          <span>Jessica&apos;s Birthday</span>
         </button>
 
         <div className="progress-wrap" aria-label={`Step ${step + 1} of 6`}>
@@ -188,7 +188,7 @@ export default function Home() {
           <div className="letter-scene" aria-live="polite">
             <article className="letter-card">
               <p className="letter-kicker">A little letter for</p>
-              <h1>Oca</h1>
+              <h1>Jessica</h1>
               <div className="tiny-rule" aria-hidden="true" />
               <p className="letter-copy">
                 Tapi sebelum kamu baca sampai akhir, ada beberapa hal yang
@@ -202,13 +202,13 @@ export default function Home() {
               <div className="envelope-letter" />
               <div className="envelope-front" />
               <div className="envelope-flap" />
-              <div className="wax-seal">W</div>
+              <div className="wax-seal">R</div>
             </div>
           </div>
 
           <div className="intro-copy">
             <p className="pretitle">Psst… this one is for you</p>
-            <h2>William has a letter for you. 💌</h2>
+            <h2>Rey has a letter for you. 💌</h2>
             <p>
               So… take your time, jawabnya yang jujur ya. Because this little
               website is made especially for you. 🤍
@@ -245,7 +245,7 @@ export default function Home() {
           <div className="answer-card">
             <span className="tape tape-left" aria-hidden="true" />
             <span className="tape tape-right" aria-hidden="true" />
-            <p className="answer-note">Your answer stays between you &amp; William</p>
+            <p className="answer-note">Your answer stays between you &amp; Rey</p>
             <label htmlFor={`answer-${question.key}`}>{question.label}</label>
 
             {question.multiline ? (
@@ -307,7 +307,7 @@ export default function Home() {
               <p>Terima kasih sudah sampai di sini.</p>
               <p>
                 Mungkin website kecil ini nggak bisa menggambarkan seberapa
-                berartinya kamu buat William.
+                berartinya kamu buat Rey.
               </p>
               <p>
                 Aku berharap, di usia yang baru ini kamu menemukan lebih banyak
@@ -334,12 +334,12 @@ export default function Home() {
               </p>
             </div>
 
-            <p className="william-signature">— William <span>🤍</span></p>
+            <p className="rey-signature">— Rey <span>🤍</span></p>
           </article>
 
           <aside className="answer-summary">
             <p className="pretitle">One last little thing</p>
-            <h2>Send your answers to William?</h2>
+            <h2>Send your answers to Rey?</h2>
             <p className="summary-intro">
               Nothing was sent or saved online. Tap below when you&apos;re ready,
               and your answers will be prepared as a WhatsApp message.
@@ -348,7 +348,7 @@ export default function Home() {
             <div className="summary-list">
               <div><span>Age</span><p>{answers.age} years young</p></div>
               <div><span>Your wish</span><p>{answers.wish}</p></div>
-              <div><span>Your ask</span><p>{answers.fromWilliam}</p></div>
+              <div><span>Your ask</span><p>{answers.fromGod}</p></div>
               <div><span>Your lesson</span><p>{answers.lesson}</p></div>
             </div>
 
@@ -365,7 +365,7 @@ export default function Home() {
 
       <footer className="site-footer">
         <span>Made for one very special day</span>
-        <span className="footer-mark">With love, William</span>
+        <span className="footer-mark">With love, Rey</span>
       </footer>
     </main>
   );

@@ -600,7 +600,7 @@ button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation
 .closing-copy p { margin: 0 0 18px; }
 .closing-emphasis { color: var(--rose-deep); font-size: 18px; font-style: italic; }
 
-.william-signature {
+.rey-signature {
   margin: 36px 0 0;
   text-align: right;
   color: var(--rose-dark);
@@ -609,7 +609,7 @@ button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation
   font-style: italic;
 }
 
-.william-signature span { font-style: normal; font-size: 15px; }
+.rey-signature span { font-style: normal; font-size: 15px; }
 
 .answer-summary {
   position: sticky;

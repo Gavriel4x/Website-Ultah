@@ -92,7 +92,7 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      const saved = window.sessionStorage.getItem('jessica-birthday-answers');
+      const saved = window.sessionStorage.getItem('chelsea-birthday-answers');
       if (saved) setAnswers({ ...EMPTY_ANSWERS, ...JSON.parse(saved) });
     } catch {
       // The experience still works when browser storage is unavailable.
@@ -101,7 +101,7 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      window.sessionStorage.setItem('jessica-birthday-answers', JSON.stringify(answers));
+      window.sessionStorage.setItem('chelsea-birthday-answers', JSON.stringify(answers));
     } catch {
       // Keep the answers in memory if browser storage is unavailable.
     }
@@ -169,7 +169,7 @@ export default function Home() {
           aria-label="Return to the beginning"
         >
           <span className="wordmark-star">✦</span>
-          <span>Jessica&apos;s Birthday</span>
+          <span>Chelsea&apos;s Birthday</span>
         </button>
 
         <div className="progress-wrap" aria-label={`Step ${step + 1} of 6`}>
@@ -188,7 +188,7 @@ export default function Home() {
           <div className="letter-scene" aria-live="polite">
             <article className="letter-card">
               <p className="letter-kicker">A little letter for</p>
-              <h1>Jessica</h1>
+              <h1>Chelsea</h1>
               <div className="tiny-rule" aria-hidden="true" />
               <p className="letter-copy">
                 Tapi sebelum kamu baca sampai akhir, ada beberapa hal yang

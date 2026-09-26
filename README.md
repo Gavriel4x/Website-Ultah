@@ -1,10 +1,10 @@
-# A Little Letter for Jessica
+# A Little Letter for Chelsea
 
-A private-feeling, mobile-first birthday experience made for Jessica by Rey. It runs entirely in the browser: there is no database, account, analytics, or server-side answer storage.
+A private-feeling, mobile-first birthday experience made for Chelsea by Rey. It runs entirely in the browser: there is no database, account, analytics, or server-side answer storage.
 
 ## Before sharing it
 
-To make the last button open Rey's WhatsApp chat directly, put his full number (country code included, without `+`, spaces, or dashes) in `REY_WHATSAPP` near the top of `app/page.tsx`. For example, an Indonesian number would start with `62`. If it stays blank, WhatsApp will let Jessica choose the chat herself.
+To make the last button open Rey's WhatsApp chat directly, put his full number (country code included, without `+`, spaces, or dashes) in `REY_WHATSAPP` near the top of `app/page.tsx`. For example, an Indonesian number would start with `62`. If it stays blank, WhatsApp will let Chelsea choose the chat herself.
 
 ## Publish with GitHub Pages
 
